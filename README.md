@@ -19,3 +19,5 @@ Connecting the ESP32 to the container in this way allows us to program, monitor 
 
 Use the esp-idf extension to build the project set in `postCreateCommand` devcontainer.json line 28.
 It is also possible to open up a terminal and issue commands like `idf.py build`
+This folder is mounted by the devcontainer at `/workspaces/{$THIS_FOLDER_NAME}`.
+Add your project or example to this this folder and change the path for the `"postCreateCommand": "echo \"bash -c /opt/esp/entrypoint.sh && cd /workspaces/{$THIS_FOLDER_NAME}\" >> /etc/bash.bashrc ",` devcontainer.json line 28.
