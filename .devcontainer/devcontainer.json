@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/universal
 {
   "name": "ESP-IDF Matter",
-  "image": "espressif/esp-matter:latest_idf_v5.2.1",
+  "image": "espressif/esp-matter:latest_idf_v5.2.3",
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
