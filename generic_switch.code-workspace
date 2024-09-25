@@ -1,0 +1,50 @@
+{
+  "folders": [
+    {
+      "path": "/opt/espressif/esp-matter/examples/generic_switch"
+    },
+    {
+      "path": "/opt/espressif/esp-idf"
+    },
+    {
+      "path": "/opt/espressif/esp-matter"
+    }
+  ],
+  "settings": {
+    "clang-format.executable": "/usr/bin/clang-format",
+    "files.associations": {
+      "*.ipp": "cpp",
+      "compare": "c",
+      "string_view": "c",
+      "rope": "c",
+      "regex": "c",
+      "__locale": "c",
+      "string": "c",
+      "spih2.h": "c",
+      "coap.h": "c",
+      "coap_internal.h": "c",
+      "coap_async_internal.h": "c",
+      "ios": "cpp",
+      "cstdlib": "cpp",
+      "mdns.h": "c",
+      "complex": "cpp",
+      "format": "cpp",
+      "*.inc": "cpp",
+      "__node_handle": "cpp",
+      "cstdint": "cpp",
+      "kibbaazure.h": "c",
+      "bitset": "c",
+      "memory_resource": "c",
+      "stacktrace": "c",
+      "demo_config.h": "c",
+      "backoff_algorithm.h": "c",
+      "azure_iot_json_reader.h": "c",
+      "freertos.h": "c"
+    },
+    "git.ignoredRepositories": [
+      "../esp-idf",
+      "../esp-matter"
+    ],
+    "editor.formatOnSave": true
+  }
+}

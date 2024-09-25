@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/universal
+{
+  "name": "ESP-IDF Matter",
+  "image": "espressif/esp-matter:latest_idf_v5.2.1",
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "idf.showOnboardingOnInit": false,
+        "idf.espIdfPath": "/opt/espressif/esp-idf",
+        "idf.customExtraPaths": "",
+        "idf.pythonBinPath": "/opt/espressif/tools/python_env/idf5.2_py3.9_env/bin/python",
+        "idf.toolsPath": "/opt/espressif/tools",
+        "idf.port": "/dev/ttyACM0",
+        "idf.gitPath": "/usr/bin/git"
+      },
+      "extensions": [
+        "espressif.esp-idf-extension",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack"
+      ]
+    }
+  },
+  // Use container entrypoint
+  "postCreateCommand": "echo \"bash -c /opt/esp/entrypoint.sh && cd /opt/espressif/esp-matter/examples/generic_switch\" >> /etc/bash.bashrc ",
+  "containerEnv": {
+    "IDF_PYTHON_ENV_PATH": "/opt/espressif/tools/python_env/idf5.2_py3.9_env",
+    "IDF_PATH": "/opt/espressif/esp-idf",
+    "PATH": "/opt/espressif/esp-idf/components/espcoredump:/opt/espressif/esp-idf/components/partition_table:/opt/espressif/esp-idf/components/app_update:/opt/espressif/tools/tools/xtensa-esp-elf-gdb/12.1_20231023/xtensa-esp-elf-gdb/bin:/opt/espressif/tools/tools/riscv32-esp-elf-gdb/12.1_20231023/riscv32-esp-elf-gdb/bin:/opt/espressif/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin:/opt/espressif/tools/tools/riscv32-esp-elf/esp-13.2.0_20230928/riscv32-esp-elf/bin:/opt/espressif/tools/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/opt/espressif/tools/tools/openocd-esp32/v0.12.0-esp32-20230921/openocd-esp32/bin:/opt/espressif/tools/tools/xtensa-esp-elf-gdb/12.1_20231023/xtensa-esp-elf-gdb/bin:/opt/espressif/tools/tools/riscv32-esp-elf-gdb/12.1_20231023/riscv32-esp-elf-gdb/bin:/opt/espressif/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin:/opt/espressif/tools/tools/riscv32-esp-elf/esp-13.2.0_20230928/riscv32-esp-elf/bin:/opt/espressif/tools/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/opt/espressif/tools/tools/openocd-esp32/v0.12.0-esp32-20230921/openocd-esp32/bin:/opt/espressif/tools/python_env/idf5.2_py3.9_env/bin:/opt/espressif/esp-idf/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/espressif/esp-matter/connectedhomeip/connectedhomeip/.environment/cipd/packages/pigweed/:/opt/espressif/esp-matter/connectedhomeip/connectedhomeip/out/host",
+    "ZAP_INSTALL_PATH": "/opt/espressif/esp-matter/connectedhomeip/connectedhomeip/.environment/cipd/packages/zap",
+    "OPENOCD_SCRIPTS": "/opt/espressif/tools/tools/openocd-esp32/v0.12.0-esp32-20230921/openocd-esp32/share/openocd/scripts"
+  },
+  /* start the container with privileged mode, else the devices cannot be accessed on the docker image.
+   */
+  "privileged": true,
+  "runArgs": [
+    "--network=host",
+    "--device=/dev/ttyACM0"
+  ],
+  "capAdd": [
+    "NET_RAW",
+    "NET_ADMIN"
+  ]
+}

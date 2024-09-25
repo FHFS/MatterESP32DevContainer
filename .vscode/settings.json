@@ -1,0 +1,5 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.flashType": "JTAG",
+  "idf.adapterTargetName": "esp32s3"
+}
